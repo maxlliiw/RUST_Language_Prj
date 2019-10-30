@@ -1,0 +1,100 @@
+Script started on 2019-10-21 14:35:19-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="148" LINES="46"]
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ls
+input2.txt  input2.txt~  input3.txt  input3.txt~  input4.txt  input4.txt~  input5.txt  input5.txt~  input.txt  [0m[01;32mmain[0m  main.rs  main.rs~  typescript
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat main.rs
+/*Programming Languages Language Learning Project 2
+ *Authors: William Shaw, Peter Costantino, Ryan Rice
+ *Version: 0.1a (10/21/19)
+ *Description: Takes a sequence of user inputed numbers and computes the sum of the sequence of numbers. Exits when 'q' in entered. Uses 32 bit floating point data types to take in numbers. Can cause floating point precision error.
+ */ 
+use std::io;
+fn main() {
+	let mut run = true;
+	println!("Enter a sequence of numbers... \nType 'q' to return sum");
+	
+	
+	let mut sum: f32 = 0.0;
+	while run {
+		let mut a = String::new();
+		io::stdin().read_line(&mut a)
+			.expect("Failed to read line!");
+		if a.trim() == "q" {
+			println!("Sum: {}", sum);
+			run = false;
+		} else {
+			let a: f32 = a.trim().parse()
+				.expect("Please type a number!");
+			sum = sum + a;
+		};
+	}
+}
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat input.txt
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+q
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat input.txt2.txt
+12
+-12
+12
+-12
+12
+-12
+12
+-12
+12
+-12
+12
+-12
+q
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat input2.txt[1P.txt3.txt
+6.00001
+6.00010
+6.00100
+6.01000
+6.10000
+q
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat input3.txt[1P.txt4.txt
+3.14
+3.0015
+3.000092
+q
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ cat input4.txt[C[1P.txt5.txt
+11.11
+22.22
+33.33
+-11.11
+q
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./[K[Krustc main.rs
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./main < inpiut[K[K[Kut.txt
+Enter a sequence of numbers... 
+Type 'q' to return sum
+Sum: 144
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./main < input.txt2.txt
+Enter a sequence of numbers... 
+Type 'q' to return sum
+Sum: 0
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./main < input2.txt[1P.txt3.txt
+Enter a sequence of numbers... 
+Type 'q' to return sum
+Sum: 30.11111
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./main < input3.txt[C[1P.txt4.txt
+Enter a sequence of numbers... 
+Type 'q' to return sum
+Sum: 9.141592
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ ./main < input4.txt[C[1P.txt5.txt
+Enter a sequence of numbers... 
+Type 'q' to return sum
+Sum: 55.550003
+]0;maxxed@pop-os: ~/eclipse-workspace/RustAddSequence/src[01;32mmaxxed@pop-os[00m:[01;34m~/eclipse-workspace/RustAddSequence/src[00m$ exit
+
+Script done on 2019-10-21 14:37:08-04:00 [COMMAND_EXIT_CODE="0"]
