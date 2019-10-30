@@ -1,0 +1,26 @@
+/*Programming Languages Language Learning Project 2
+ *Authors: William Shaw, Peter Costantino, Ryan Rice
+ *Version: 0.1a (10/14/19)
+ *Description: Takes two user entered unsigned 32 bit integers and adds them to create a sum 
+ */ 
+use std::io;
+fn main() {
+	let mut run = true;
+	println!("Enter a sequence of numbers... \nType 'q' to return sum");
+	
+	
+	let mut sum: f32 = 0.0;
+	while run {
+		let mut a = String::new();
+		io::stdin().read_line(&mut a)
+			.expect("Failed to read line!");
+		if a.trim() == "q" {
+			println!("Sum: {}", sum);
+			run = false;
+		} else {
+			let a: f32 = a.trim().parse()
+				.expect("Please type a number!");
+			sum = sum + a;
+		};
+	}
+}
